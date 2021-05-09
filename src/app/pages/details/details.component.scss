@@ -1,0 +1,14 @@
+table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.action-btn {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+}

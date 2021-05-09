@@ -1,0 +1,105 @@
+<mat-dialog-content class="example-container" *ngIf="!(isClosing$ | async)">
+  <form [formGroup]="form">
+    <h3>New Permission</h3>
+
+    <mat-form-field class="max-width">
+      <mat-label>Id</mat-label>
+      <input matInput focus formControlName="id" required>
+    </mat-form-field>
+
+    <mat-form-field class="max-width">
+      <mat-label>Href</mat-label>
+      <input matInput focus formControlName="href" required>
+    </mat-form-field>
+
+    <mat-form-field class="max-width">
+      <mat-label>Description</mat-label>
+      <textarea formControlName="description" matInput cdkTextareaAutosize cdkAutosizeMinRows="2"
+        cdkAutosizeMaxRows="5"></textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Start date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="startDateTime" required>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>End date</mat-label>
+      <input matInput [matDatepicker]="picker2" formControlName="endDateTime" required>
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+
+    <div formGroupName="user">
+      <h3>User</h3>
+      <mat-form-field class="max-width">
+        <mat-label>Id</mat-label>
+        <input matInput focus formControlName="id" required>
+      </mat-form-field>
+      <mat-form-field class="max-width">
+        <mat-label>Name</mat-label>
+        <input matInput focus formControlName="name" required>
+      </mat-form-field>
+      <mat-form-field class="max-width">
+        <mat-label>Href</mat-label>
+        <input matInput focus formControlName="href" required>
+      </mat-form-field>
+    </div>
+
+    <div formGroupName="granter">
+      <h3>Granter</h3>
+      <mat-form-field class="max-width">
+        <mat-label>Id</mat-label>
+        <input matInput focus formControlName="id" required>
+      </mat-form-field>
+      <mat-form-field class="max-width">
+        <mat-label>Name</mat-label>
+        <input matInput focus formControlName="name" required>
+      </mat-form-field>
+      <mat-form-field class="max-width">
+        <mat-label>Href</mat-label>
+        <input matInput focus formControlName="href" required>
+      </mat-form-field>
+    </div>
+
+    <div formArrayName="privilege">
+      <h3>Privilege</h3>
+      <ng-container *ngFor="let control of form.get('privilege')['controls']; index as i">
+        <ng-container [formGroupName]="i">
+          <mat-form-field class="max-width">
+            <mat-label>"id"</mat-label>
+            <input matInput focus formControlName="id" required>
+          </mat-form-field>
+          <mat-form-field class="max-width">
+            <mat-label>"entityType"</mat-label>
+            <input matInput focus formControlName="entityType" required>
+          </mat-form-field>
+          <mat-form-field class="max-width">
+            <mat-label>"function"</mat-label>
+            <input matInput focus formControlName="function" required>
+          </mat-form-field>
+          <mat-form-field class="max-width">
+            <mat-label>"action"</mat-label>
+            <input matInput focus formControlName="action" required>
+          </mat-form-field>
+          <mat-label>
+            <button mat-button (click)="removeFormControl(i)">
+              <mat-icon>highlight_off</mat-icon>
+            </button>
+          </mat-label>
+          <br>
+        </ng-container>
+
+      </ng-container>
+    </div>
+
+    <button mat-button (click)="addFormControl()">ADD</button>
+
+    <div style="display: flex; justify-content: flex-end;">
+      <button mat-button color="primary" (click)="dialogRef.close()" class="margin-right">CANCEL</button>
+      <button mat-raised-button color="primary" [mat-dialog-close]="form.value" [disabled]="form.invalid">ADD</button>
+    </div>
+  </form>
+</mat-dialog-content>
