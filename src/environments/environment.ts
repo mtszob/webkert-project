@@ -4,13 +4,13 @@
 
 export const environment = {
   firebaseConfig:  {
-    apiKey: 'AIzaSyDj8Le5rP4b3NnvqhRn3bk22bXzLg-pl2Q',
-    authDomain: 'webkert-6f3ea.firebaseapp.com',
-    projectId: 'webkert-6f3ea',
-    storageBucket: 'webkert-6f3ea.appspot.com',
-    messagingSenderId: '543056483464',
-    appId: '1:543056483464:web:fd7dfec731b5bcf9c0fb3d',
-    measurementId: 'G-BXQK7P8NRP',
+    apiKey: "AIzaSyACkY7arK-Uo0Dsp8AriEjQzEQV8SFRiec",
+    authDomain: "user-roles-webkert.firebaseapp.com",
+    projectId: "user-roles-webkert",
+    storageBucket: "user-roles-webkert.appspot.com",
+    messagingSenderId: "983629792993",
+    appId: "1:983629792993:web:53d4c78b7109dc296759a0",
+    measurementId: "G-1NZTK13TGD"
   },
   production: false
 };
